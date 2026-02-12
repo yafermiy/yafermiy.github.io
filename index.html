@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>XRRONA FX – Next‑Gen FX Extension for After Effects 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="XRRONA FX – next generation FX extension for Adobe After Effects 2026. Neon-grade color, cinematic glitches, drag & drop workflow and a premium UI."
+  />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- GSAP + ScrollTrigger + ScrollTo (CDN) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+  <!-- Three.js (CDN) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+
+  <!-- Main script -->
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-inner">
+      <div class="loading-logo">
+        <span class="loading-badge">FX</span>
+        <span class="loading-title">
+          <span class="word-primary">XRRONA</span>
+          <span class="word-secondary">FX</span>
+        </span>
+      </div>
+      <div class="loading-subtitle">Booting Neon Engine 2026</div>
+      <div class="loading-bar">
+        <div class="loading-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor Glow (desktop only) -->
+  <div class="cursor-glow"></div>
+
+  <!-- Grain Overlay -->
+  <div class="grain-overlay"></div>
+
+  <!-- Hero / 3D background canvas -->
+  <header class="hero" id="top">
+    <canvas id="hero-canvas"></canvas>
+
+    <div class="hero-layer hero-layer--content">
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="nav-logo">
+            <span class="nav-logo-mark">XR</span>
+            <span class="nav-logo-text">
+              <span>XRRONA</span>
+              <span class="nav-logo-sub">FX for AE</span>
+            </span>
+          </div>
+        </div>
+        <div class="nav-right">
+          <a href="#preview" class="nav-link" data-scroll-to>Preview</a>
+          <a href="#features" class="nav-link" data-scroll-to>Features</a>
+          <a href="#why" class="nav-link" data-scroll-to>Why XRRONA</a>
+          <a href="#download" class="nav-link nav-link--outline" data-scroll-to>Download</a>
+        </div>
+        <button class="nav-burger" aria-label="Toggle navigation">
+          <span></span><span></span>
+        </button>
+      </nav>
+
+      <div class="hero-grid">
+        <div class="hero-copy" data-animate="hero">
+          <p class="hero-label">After Effects Extension · 2026</p>
+          <h1 class="hero-title">
+            <span class="hero-title-main">XRRONA FX</span>
+            <span class="hero-title-glow">Neon‑grade visuals in one click.</span>
+          </h1>
+          <p class="hero-description">
+            Design‑studio level color, glitch, shake and 3D typography inside Adobe After Effects. 
+            Built for editors who move fast and like their UI as sharp as their cuts.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#download" class="btn btn-primary" data-scroll-to>
+              <span>Download Free</span>
+              <span class="btn-sub">AE 2021 – 2026</span>
+            </a>
+            <button class="btn btn-ghost" data-preview>
+              <span>Watch Preview</span>
+              <span class="btn-icon-pulse"></span>
+            </button>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span class="meta-label">Presets</span>
+              <span class="meta-value">180+</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="meta-label">Categories</span>
+              <span class="meta-value">6</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="meta-label">Workflow boost</span>
+              <span class="meta-value">x4 faster</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-ui-preview" data-animate="hero-ui">
+          <div class="hero-ui-card tilt">
+            <div class="hero-ui-header">
+              <span class="dot dot--pink"></span>
+              <span class="dot dot--violet"></span>
+              <span class="dot dot--purple"></span>
+              <span class="hero-ui-title">XRRONA FX · Panel</span>
+            </div>
+            <div class="hero-ui-body">
+              <div class="hero-ui-search">
+                <span class="search-icon">⌕</span>
+                <span class="search-placeholder">Search a preset…</span>
+              </div>
+              <ul class="hero-ui-list">
+                <li class="hero-ui-item hero-ui-item--active">
+                  <span class="hero-ui-pill">Color</span>
+                  <span>Color Correction</span>
+                  <span class="hero-ui-hotkey">C</span>
+                </li>
+                <li class="hero-ui-item">
+                  <span class="hero-ui-pill">FX</span>
+                  <span>Motion FX</span>
+                  <span class="hero-ui-hotkey">F</span>
+                </li>
+                <li class="hero-ui-item">
+                  <span class="hero-ui-pill">Mix</span>
+                  <span>Mixed FX</span>
+                  <span class="hero-ui-hotkey">M</span>
+                </li>
+                <li class="hero-ui-item">
+                  <span class="hero-ui-pill">Shake</span>
+                  <span>Shake & Camera</span>
+                  <span class="hero-ui-hotkey">S</span>
+                </li>
+                <li class="hero-ui-item">
+                  <span class="hero-ui-pill">Text</span>
+                  <span>3D Text</span>
+                  <span class="hero-ui-hotkey">T</span>
+                </li>
+              </ul>
+            </div>
+            <div class="hero-ui-footer">
+              <span class="hero-ui-status-dot"></span>
+              <span class="hero-ui-status">Neon Engine Online</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-floating-badge" data-animate="badge">
+        <span class="badge-label">Built for</span>
+        <span class="badge-value">Editors & Motion Designers</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Preview Section -->
+    <section class="section section-preview" id="preview">
+      <div class="section-inner">
+        <div class="section-header" data-animate="section-title">
+          <p class="eyebrow">Live Preview</p>
+          <h2>See XRRONA FX in action</h2>
+          <p class="section-description">
+            Cinematic looks, glitch, shake and 3D title presets ready to drop into your timeline.
+            These are placeholder images – swap them with your own frames in seconds.
+          </p>
+        </div>
+
+        <div class="preview-grid">
+          <figure class="preview-item" data-animate="preview-card">
+            <img src="assets/preview-1.jpg" alt="XRRONA FX color grading preview" />
+            <figcaption>Neon Color Grading · One‑click looks</figcaption>
+          </figure>
+          <figure class="preview-item" data-animate="preview-card">
+            <img src="assets/preview-2.jpg" alt="XRRONA FX glitch and FX preview" />
+            <figcaption>Cinematic Glitch & Signal Damage</figcaption>
+          </figure>
+          <figure class="preview-item" data-animate="preview-card">
+            <img src="assets/preview-3.jpg" alt="XRRONA FX mixed FX stack preview" />
+            <figcaption>Stacked FX · Saved as presets</figcaption>
+          </figure>
+          <figure class="preview-item" data-animate="preview-card">
+            <img src="assets/preview-4.jpg" alt="XRRONA FX 3D title preview" />
+            <figcaption>3D Title Engine · Fast & sharp</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" aria-label="Close preview">&times;</button>
+      <img class="lightbox-image" src="" alt="Preview" />
+      <div class="lightbox-caption"></div>
+    </div>
+
+    <!-- Features Grid -->
+    <section class="section section-features" id="features">
+      <div class="section-inner">
+        <div class="section-header" data-animate="section-title">
+          <p class="eyebrow">Preset Engine</p>
+          <h2>The categories that power XRRONA FX</h2>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card tilt" data-animate="feature-card">
+            <div class="feature-accent feature-accent--color"></div>
+            <h3>Color Correction</h3>
+            <p>From soft filmic fades to aggressive neon palettes. Drop in a look and keep cutting.</p>
+            <ul>
+              <li>Film, music video & social packs</li>
+              <li>Neon, CRT and duotone looks</li>
+              <li>Neutral base grades for speed</li>
+            </ul>
+          </article>
+
+          <article class="feature-card tilt" data-animate="feature-card">
+            <div class="feature-accent feature-accent--fx"></div>
+            <h3>FX</h3>
+            <p>Cinematic distortions, transitions, blurs and glow – tuned for 4K timelines.</p>
+            <ul>
+              <li>Chromatic aberration & bloom</li>
+              <li>Whip, morph and glitch transitions</li>
+              <li>Signal, noise and camera artifacts</li>
+            </ul>
+          </article>
+
+          <article class="feature-card tilt" data-animate="feature-card">
+            <div class="feature-accent feature-accent--mixed"></div>
+            <h3>Mixed FX</h3>
+            <p>Curated stacks that combine color, blur and damage for instantly finished frames.</p>
+            <ul>
+              <li>Drag & drop complex looks</li>
+              <li>Editable layers under the hood</li>
+              <li>Save your own stacks as presets</li>
+            </ul>
+          </article>
+
+          <article class="feature-card tilt" data-animate="feature-card">
+            <div class="feature-accent feature-accent--shake"></div>
+            <h3>Shake</h3>
+            <p>Camera shake designed for trailers, music videos and social hooks.</p>
+            <ul>
+              <li>Micro, handheld and chaos modes</li>
+              <li>Directional impact shakes</li>
+              <li>Motion‑blur aware curves</li>
+            </ul>
+          </article>
+
+          <article class="feature-card tilt" data-animate="feature-card">
+            <div class="feature-accent feature-accent--edit"></div>
+            <h3>Edit & VFX</h3>
+            <p>Smart utilities that clean up timelines and keep complex comps responsive.</p>
+            <ul>
+              <li>Pre‑built adjustment stacks</li>
+              <li>Render‑friendly presets</li>
+              <li>Utility FX for editors</li>
+            </ul>
+          </article>
+
+          <article class="feature-card tilt" data-animate="feature-card">
+            <div class="feature-accent feature-accent--text"></div>
+            <h3>3D Text</h3>
+            <p>High‑impact titles with depth, reflections and motion, all from simple controls.</p>
+            <ul>
+              <li>Instant bevel, extrusion & glow</li>
+              <li>Intro / outro motion presets</li>
+              <li>Built for title templates</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why XRRONA -->
+    <section class="section section-why" id="why">
+      <div class="section-inner">
+        <div class="section-header" data-animate="section-title">
+          <p class="eyebrow">Why XRRONA</p>
+          <h2>Built like a studio tool, not a side project</h2>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-item" data-animate="why">
+            <h3>Fast Workflow</h3>
+            <p>Preset search, keyboard tags and drag & drop. Stay in the flow of the edit, not the menus.</p>
+          </div>
+          <div class="why-item" data-animate="why">
+            <h3>Optimized Performance</h3>
+            <p>Curated effects and expressions tuned to stay responsive on modern GPUs.</p>
+          </div>
+          <div class="why-item" data-animate="why">
+            <h3>Modern UI</h3>
+            <p>Dark neon interface, pixel‑perfect typography and zero clutter around the actual tools.</p>
+          </div>
+          <div class="why-item" data-animate="why">
+            <h3>AE 2026 Ready</h3>
+            <p>Designed against the latest After Effects builds with forward‑compatible presets.</p>
+          </div>
+          <div class="why-item" data-animate="why">
+            <h3>Drag & Drop System</h3>
+            <p>Every preset is a building block. Stack them, tweak them, save them as your own library.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section class="section section-download" id="download">
+      <div class="section-inner">
+        <div class="download-shell">
+          <div class="download-copy" data-animate="download">
+            <p class="eyebrow">Ready when you are</p>
+            <h2>Download XRRONA FX for After Effects 2026</h2>
+            <p>
+              Get the full preset engine for free. Import the extension, restart After Effects and start
+              dropping neon into your timeline.
+            </p>
+          </div>
+          <div class="download-cta" data-animate="download-btn">
+            <a href="#" class="download-button tilt">
+              <span class="download-label">Download XRRONA FX for AE 2026 – Free</span>
+              <span class="download-sub">Win · macOS · Apple Silicon ready</span>
+            </a>
+            <p class="download-note">
+              No signup required. You can replace this link with your own ZIP or installer at any time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">XRRONA FX</span>
+        <span class="footer-meta">Unofficial concept site · 2026</span>
+      </div>
+      <div class="footer-right">
+        <a href="#" class="social-link" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M22 8.2s-.2-1.5-.8-2.2c-.7-.8-1.5-.8-1.9-.9C16.6 5 12 5 12 5h0s-4.6 0-7.3.1c-.4.1-1.2.1-1.9.9C2.2 6.7 2 8.2 2 8.2S1.8 9.9 1.8 11.6v1.7C1.8 14.9 2 16.6 2 16.6s.2 1.5.8 2.2c.7.8 1.6.8 2 0.9 1.4.1 7.2.1 7.2.1s4.6 0 7.3-.1c.4-.1 1.2-.1 1.9-.9.6-.7.8-2.2.8-2.2s.2-1.7.2-3.4v-1.7C22.2 9.9 22 8.2 22 8.2zM10 14.9V8.8l5.2 3.1L10 14.9z"
+            />
+          </svg>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3z"
+            />
+            <circle cx="17.3" cy="6.7" r="1" />
+            <path
+              d="M17.5 3H6.5A3.5 3.5 0 0 0 3 6.5v11A3.5 3.5 0 0 0 6.5 21h11a3.5 3.5 0 0 0 3.5-3.5v-11A3.5 3.5 0 0 0 17.5 3zm2.1 14.5a2.1 2.1 0 0 1-2.1 2.1H6.5a2.1 2.1 0 0 1-2.1-2.1v-11a2.1 2.1 0 0 1 2.1-2.1h11a2.1 2.1 0 0 1 2.1 2.1z"
+            />
+          </svg>
+        </a>
+        <a href="#" class="social-link" aria-label="Behance">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M10.1 11.1c.6-.3 1.1-.9 1.1-1.9 0-2-1.4-2.7-3.3-2.7H3v10.9h5.1c2.2 0 3.6-1 3.6-3.1 0-1.3-.6-2.1-1.6-2.5zM5.2 8.1h2.4c.8 0 1.3.4 1.3 1.2s-.5 1.2-1.3 1.2H5.2zm2.5 7H5.2v-2.7h2.6c.9 0 1.5.5 1.5 1.4s-.6 1.3-1.6 1.3zM21 9.3c-.8-.7-1.8-1-3-1-2.8 0-4.5 1.8-4.5 4.6 0 2.9 1.7 4.6 4.5 4.6 2.2 0 3.6-1.2 4-3.4l-2-.2c-.2 1-.8 1.6-1.9 1.6-1.3 0-2.2-.9-2.2-2.6s.8-2.6 2.2-2.6c1 0 1.6.4 1.8 1.3l2-.3C22.1 10.8 21.7 9.9 21 9.3zM17.3 7.1h3V8h-3z"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
